@@ -1,22 +1,8 @@
-﻿// Repositories/IBookRepository.cs
-
-using BookStoreAPI.Models;
+﻿using BookStoreAPI.Models;
 using Dapper;
 using Npgsql;
 
 namespace BookStoreAPI.Repositories;
-
-public interface IBookRepository
-{
-    Task<IEnumerable<Book>> GetAllBooksAsync();
-    Task<Book> GetBookByIdAsync(int id);
-    Task AddBookAsync(Book book);
-    Task UpdateBookAsync(Book book);
-    Task DeleteBookAsync(int id);
-}
-
-// Repositories/BookRepository.cs
-
 
 public class BookRepository : IBookRepository
 {

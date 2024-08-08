@@ -10,8 +10,8 @@ namespace BookStoreAPI.Mappings
         public MappingProfile()
         {
             CreateMap<Book, BookDto>()
-                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.AuthorId))
-                .ForMember(dest => dest.GenreName, opt => opt.MapFrom(src => src.GenreId));
+                .ForMember(dest => dest.AuthorNames, opt => opt.MapFrom(src => src.Authors.Select(x =>x.Name)))
+                .ForMember(dest => dest.GenreName, opt => opt.MapFrom(src => src.Genre.Id));
         }
     }
 }

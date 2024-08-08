@@ -1,6 +1,4 @@
-﻿// Startup.cs
-
-using BookStoreAPI.Repositories;
+﻿using BookStoreAPI.Repositories;
 using BookStoreAPI.Services;
 using Microsoft.OpenApi.Models;
 

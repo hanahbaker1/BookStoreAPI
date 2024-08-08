@@ -1,34 +1,19 @@
-﻿// Models/Book.cs
-
-namespace BookStoreAPI.Models;
+﻿namespace BookStoreAPI.Models;
 
 public class Book
 {
+    public Book(int id, string title, IReadOnlyList<Author> authors, Genre genre, DateTime publishedDate)
+    {
+        Id = id;
+        Title = title;
+        Authors = authors;
+        Genre = genre;
+        PublishedDate = publishedDate;
+    }
+
     public int Id { get; set; }
     public string Title { get; set; }
-    public int AuthorId { get; set; }
-    public int GenreId { get; set; }
-}
-
-// Models/Author.cs
-public class Author
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-}
-
-// Models/Genre.cs
-public class Genre
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-}
-
-// DTOs/BookDto.cs
-public class BookDto
-{
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string AuthorName { get; set; }
-    public string GenreName { get; set; }
+    public IReadOnlyList<Author> Authors { get; set; }
+    public Genre Genre { get; set; }
+    public DateTime PublishedDate { get; set; }
 }

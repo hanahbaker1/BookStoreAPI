@@ -6,15 +6,6 @@ using BookStoreAPI.Repositories;
 
 namespace BookStoreAPI.Services
 {
-    public interface IBookService
-    {
-        Task<IEnumerable<BookDto>> GetAllBooksAsync();
-        Task<BookDto> GetBookByIdAsync(int id);
-        Task AddBookAsync(BookDto bookDto);
-        Task UpdateBookAsync(BookDto bookDto);
-        Task DeleteBookAsync(int id);
-    }
-
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;
