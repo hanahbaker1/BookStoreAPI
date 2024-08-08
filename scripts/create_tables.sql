@@ -1,0 +1,19 @@
+-- scripts/create_tables.sql
+CREATE TABLE IF NOT EXISTS Authors (
+    Id SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Genres (
+    Id SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Books (
+    Id SERIAL PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    AuthorId INT NOT NULL,
+    GenreId INT NOT NULL,
+    FOREIGN KEY (AuthorId) REFERENCES Authors(Id),
+    FOREIGN KEY (GenreId) REFERENCES Genres(Id)
+);

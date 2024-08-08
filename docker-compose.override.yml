@@ -1,0 +1,14 @@
+﻿version: '3.8'
+
+services:
+  bookstoreapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: ./src/BookStoreAPI
+      dockerfile: Dockerfile
+    command: ["dotnet", "watch", "run", "--urls=http://0.0.0.0:5000"]
+
+  postgres:
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d

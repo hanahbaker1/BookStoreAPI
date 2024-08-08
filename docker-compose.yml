@@ -1,0 +1,35 @@
+﻿version: '3.8'
+
+services:
+  bookstoreapi:
+    build:
+      context: ./src/BookStoreAPI
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=bookstoredb;User Id=postgres;Password=password;
+    networks:
+      - bookstore-network
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: bookstoredb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bookstore-network
+
+networks:
+  bookstore-network:
+
+volumes:
+  postgres_data:
