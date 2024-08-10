@@ -1,9 +1,11 @@
 ﻿using BookStoreAPI.Models;
 using BookStoreAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStoreAPI.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class AuthorController : ControllerBase
