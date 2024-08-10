@@ -1,6 +1,4 @@
-﻿version: '3.8'
-
-services:
+﻿services:
   bookstoreapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
